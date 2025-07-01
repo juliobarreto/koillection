@@ -95,3 +95,7 @@ HEALTHCHECK CMD curl --fail http://localhost:80/ || exit 1
 ENTRYPOINT ["sh", "/var/www/koillection/docker/entrypoint.sh" ]
 
 CMD [ "nginx" ]
+
+RUN chown -R :0 /var/www/koillection && chmod -R g+w /var/www/koillection
+
+STOPSIGNAL SIGQUIT
