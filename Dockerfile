@@ -21,8 +21,9 @@ COPY ./ /var/www/koillection
 # Instalação do Composer e dependências PHP
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     cd /var/www/koillection && \
-    composer install --classmap-authoritative --no-dev --optimize-autoloader && \
-    composer clearcache
+    composer install --no-scripts --no-autoloader --no-dev && \
+    composer dump-autoload --optimize --classmap-authoritative --no-dev && \
+    APP_ENV=prod php bin/console cache:clear
 
 # Build dos assets Javascript
 RUN cd /var/www/koillection/ && \
