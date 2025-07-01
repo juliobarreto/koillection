@@ -41,7 +41,7 @@ RUN apt-get update && \
 # Instalação do Composer e dependências PHP
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     cd /var/www/koillection && \
-    composer install --classmap-authoritative --no-dev --optimize && \
+    composer install --classmap-authoritative --no-dev --optimize-autoloader && \
     composer clearcache
 
 # Build dos assets Javascript
