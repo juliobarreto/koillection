@@ -53,7 +53,7 @@ RUN cd /var/www/koillection/ && \
     yarn build
 
 # Limpeza
-RUN apt-get purge -y wget lsb-release software-properties-common git nodejs apt-transport-https, ca-certificates gnupg2 unzip && \
+RUN apt-get purge -y wget lsb-release software-properties-common git nodejs apt-transport-https ca-certificates gnupg2 unzip && \
     apt-get autoremove -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
